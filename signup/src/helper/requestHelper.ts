@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios'
 
-const baseUrl = process.env.API || ''
+const baseUrl = 'http://localhost:8085'
 
 const getHeaders = (headers = {}) => {
   if (localStorage.token) {
