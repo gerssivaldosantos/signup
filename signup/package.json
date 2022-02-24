@@ -6,6 +6,7 @@
   "author": "Gerssivaldo Oliveira Dos Santos <61440136+gerssivaldosantos@users.noreply.github.com>",
   "private": true,
   "scripts": {
+    "dev": "quasar dev",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
