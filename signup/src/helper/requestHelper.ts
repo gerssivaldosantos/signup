@@ -11,14 +11,16 @@ const getHeaders = (headers = {}) => {
     }
   }
 }
+
 export const useUserRequest = {
-  get (routeName:string, headers = {}) {
+  get (routeName: string, headers = {}) {
     return axios.get(`${baseUrl}/${routeName}`, { headers: getHeaders(headers) })
   }
 }
 
 export const useAuthRequest = {
-  post (routeName:string, params?:unknown, headers = {}):AxiosPromise {
-    return axios.post(`${baseUrl}/${routeName}`, params, { headers: getHeaders(headers) })
+  async post (routeName: string, params?: unknown, headers = {}): Promise<AxiosPromise> {
+    const result = await axios.post(`${baseUrl}/${routeName}`, params, { headers: getHeaders(headers) })
+    return result
   }
 }
