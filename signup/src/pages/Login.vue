@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useAuthRequest } from 'src/helper/requestHelper'
 
 const router = useRouter()
@@ -25,15 +25,23 @@ const password = ref<string>('')
 
 const onLogin = async () => {
   try {
-    await useAuthRequest.post('auth', {
+    const result = await useAuthRequest.post('auth', {
       email: email.value,
       password: password.value
     })
+    localStorage.setItem('userInfo', JSON.stringify(result))
     void router.push('/profile')
   } catch (err) {
     alert(err)
   }
 }
+
+onMounted(() => {
+  const userInfo = localStorage.getItem('userInfo')
+  if (userInfo) {
+    void router.push('/profile')
+  }
+})
 
 </script>
 
