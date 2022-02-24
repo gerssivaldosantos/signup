@@ -10,7 +10,15 @@
 </template>
 
 <script setup lang="ts" >
-const personName = 'Gerssivaldo'
+import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+const personName = ref<string>('Gerssivaldo')
+
+onMounted(() => {
+  if (!localStorage.getItem('userInfo')) {
+    void useRouter().push('/login')
+  }
+})
 
 </script>
 
