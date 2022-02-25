@@ -1,9 +1,10 @@
 <template>
   <q-layout>
     <q-page>
-      <q-bar>
+      <q-bar style="display: flex; justify-content: space-between;" >
         <q-icon name="person" />
         <h2 class="personName">{{personName}}</h2>
+        <q-btn @click="onLogout" color="black" label="logout"/>
       </q-bar>
     </q-page>
   </q-layout>
@@ -13,10 +14,22 @@
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 const personName = ref<string>('Gerssivaldo')
+const router = useRouter()
+
+const onLogout = () => {
+  try {
+    localStorage.removeItem('userInfo')
+    setTimeout(() => {
+      void router.push('/login')
+    }, 50)
+  } catch {
+    void useRouter().push('/login')
+  }
+}
 
 onMounted(() => {
   if (!localStorage.getItem('userInfo')) {
-    void useRouter().push('/login')
+    void router.push('/login')
   }
 })
 
