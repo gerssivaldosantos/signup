@@ -10,5 +10,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[vue]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  }
+  },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 }
