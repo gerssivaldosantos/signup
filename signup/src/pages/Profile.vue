@@ -13,24 +13,34 @@
 <script setup lang="ts" >
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
-const personName = ref<string>('Gerssivaldo')
+import { useUserRequest } from 'src/helper/requestHelper'
+
+const personName = ref<string>('Loading ...')
 const router = useRouter()
 
-const onLogout = () => {
+const onLogout = async () => {
   try {
     localStorage.removeItem('userInfo')
-    setTimeout(() => {
-      void router.push('/login')
-    }, 50)
+    await router.push('/login')
   } catch {
-    void useRouter().push('/login')
+    await router.push('/login')
   }
 }
 
+const getPersonInfo = async () => {
+  try {
+    const result = await useUserRequest.get('user')
+    return result
+  } catch (err) {
+    alert(err)
+  }
+}
 onMounted(() => {
   if (!localStorage.getItem('userInfo')) {
     void router.push('/login')
   }
+  const user = getPersonInfo()
+  console.log(user)
 })
 
 </script>
