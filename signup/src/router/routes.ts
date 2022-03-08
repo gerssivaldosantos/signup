@@ -15,6 +15,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/Profile.vue')
   },
 
+  {
+    path: '/createUser',
+    component: () => import('pages/CreateUser.vue')
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
