@@ -2,7 +2,7 @@
   <q-page class="bg-blue-10 window-height window-width row justify-center items-center">
     <div class="column">
       <div class="row">
-        <h5 class="text-h5 text-white q-my-md">Andows's Market Place</h5>
+        <h5 style="cursor: default;" class="text-h5 text-white q-my-md">Andows's Market Place</h5>
       </div>
       <div class="row">
         <q-card
@@ -64,11 +64,11 @@ const router = useRouter()
 const email = ref<string>('')
 const password = ref<string>('')
 
-const onForgotPassword = () => {
+const onForgotPassword = async () => {
   try {
-    console.log('test')
+    await router.push('/rescuePassword')
   } catch (err) {
-    console.log('catch')
+    alert(err)
   }
 }
 
