@@ -4,7 +4,7 @@
       <div class="row">
         <div class="row">
           <q-btn @click="router.push('/login')" flat color="white" icon="arrow_back" />
-          <p class="text-h5 text-white q-my-md">New User</p>
+          <p style="cursor: default;" class="text-h5 text-white q-my-md">New User</p>
         </div>
       </div>
       <div class="row">
