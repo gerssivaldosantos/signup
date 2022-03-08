@@ -42,7 +42,7 @@
           </q-card-actions>
           <q-card-section style="padding-right: 15px;" class="text-right q-pa-none">
             <div style="cursor:  pointer;" @click="onForgotPassword">
-              <p class="text-grey-6">Forgot the password ?</p>
+              <p class="forgot-password">Forgot the password ?</p>
             </div>
           </q-card-section>
           <q-card-section class="text-center q-pa-none">
@@ -58,6 +58,7 @@
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import { useAuthRequest } from 'src/helper/requestHelper'
+import { Notify } from 'quasar'
 
 const isPwd = ref<boolean>(true)
 const router = useRouter()
@@ -88,8 +89,17 @@ const onLogin = async () => {
     })
     localStorage.setItem('userInfo', JSON.stringify(result))
     await router.push('/profile')
+    Notify.create({
+      message: 'Welcome',
+      color: 'green',
+      timeout: 150
+    })
   } catch (err) {
-    alert(err)
+    Notify.create({
+      message: 'Internal server error',
+      color: 'red',
+      timeout: 150
+    })
   }
 }
 
@@ -101,3 +111,14 @@ onMounted(() => {
 })
 
 </script>
+
+<style>
+.forgot-password {
+  color: #868686;
+}
+
+.forgot-password:hover {
+  transition: all 1s;
+  color: rgb(50, 111, 224);
+}
+</style>

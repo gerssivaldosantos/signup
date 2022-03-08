@@ -77,13 +77,15 @@ const onCreateUser = async () => {
     })
     Notify.create({
       message: 'Created',
-      color: 'green'
+      color: 'green',
+      timeout: 300
     })
     await router.push('/login')
   } catch (err) {
     Notify.create({
       message: 'Cannot create',
-      color: 'red'
+      color: 'red',
+      timeout: 300
     })
   }
 }
