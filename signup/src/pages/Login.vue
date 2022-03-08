@@ -40,8 +40,12 @@
               label="Login"
             />
           </q-card-actions>
+          <q-card-section style="padding-right: 15px;" class="text-right q-pa-none">
+            <div style="cursor:  pointer;" @click="onForgotPassword">
+              <p class="text-grey-6">Forgot the password ?</p>
+            </div>
+          </q-card-section>
           <q-card-section class="text-center q-pa-none">
-            <p class="text-grey-6"></p>
             <q-btn @click="onCreateUser" outline color="primary" label="Create an Account" />
           </q-card-section>
         </q-card>
@@ -59,6 +63,14 @@ const isPwd = ref<boolean>(true)
 const router = useRouter()
 const email = ref<string>('')
 const password = ref<string>('')
+
+const onForgotPassword = () => {
+  try {
+    console.log('test')
+  } catch (err) {
+    console.log('catch')
+  }
+}
 
 const onCreateUser = async () => {
   try {
