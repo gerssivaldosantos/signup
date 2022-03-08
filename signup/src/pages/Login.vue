@@ -70,7 +70,7 @@ const onLogin = async () => {
       password: password.value
     })
     localStorage.setItem('userInfo', JSON.stringify(result))
-    void router.push('/profile')
+    await router.push('/profile')
   } catch (err) {
     alert(err)
   }
