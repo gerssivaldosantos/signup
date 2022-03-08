@@ -1,15 +1,14 @@
 import axios, { AxiosPromise } from 'axios'
-import { userRequest } from 'src/@types/userRequest'
+import { userRequestId } from 'src/@types/userRequestId'
 
 const baseUrl = 'http://localhost:8085'
 
 const getHeaders = (headers = {}) => {
-  if (localStorage.token) {
-    const userInfo = <userRequest>(
+  if (localStorage.userInfo) {
+    const userInfo = <userRequestId>(
       JSON.parse(localStorage.getItem('userInfo') || '')
     )
-    const token = userInfo.data.token
-    console.log(token)
+    const token = userInfo?.data?.token
     return {
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers
