@@ -5,7 +5,12 @@
         <h5 class="text-h5 text-white q-my-md">Andows's Market Place</h5>
       </div>
       <div class="row">
-        <q-card style="padding: 100px; " square bordered class="q-pa-lg shadow-5">
+        <q-card
+          style="padding: 50px; max-width: 800px; min-width: 500px;"
+          square
+          bordered
+          class="q-pa-lg shadow-5"
+        >
           <q-card-section>
             <q-form class="q-gutter-md">
               <q-input outlined v-model="email" type="email" label="email" />
