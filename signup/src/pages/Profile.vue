@@ -1,11 +1,15 @@
 <template>
   <q-layout>
     <q-page>
-      <q-bar style="display: flex; justify-content: space-between;" >
-        <q-icon name="person" />
-        <h2 class="personName">{{userInfo?.name}}</h2>
-        <q-btn @click="onLogout" color="black" label="logout"/>
-      </q-bar>
+      <q-header elevated class="bg-blue-10 text-white">
+        <q-toolbar>
+          <q-toolbar-title>
+            <q-icon style="padding-top: 8px;" name="person" />
+            <h2 class="personName">{{ userInfo?.name }}</h2>
+          </q-toolbar-title>
+          <q-btn @click="onLogout" flat text-color="white" color="white" icon="logout" />
+        </q-toolbar>
+      </q-header>
     </q-page>
   </q-layout>
 </template>
@@ -36,10 +40,8 @@ onMounted(() => {
 </script>
 
 <style>
-
-.personName{
+.personName {
   padding-left: 10px;
   font-size: 15px;
 }
-
 </style>
