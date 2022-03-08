@@ -20,6 +20,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/CreateUser.vue')
   },
 
+  {
+    path: '/rescuePassword',
+    component: () => import('pages/RescuePassword.vue')
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
