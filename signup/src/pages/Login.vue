@@ -37,7 +37,7 @@
           </q-card-actions>
           <q-card-section class="text-center q-pa-none">
             <p class="text-grey-6"></p>
-            <q-btn outline color="primary" label="Create an Account" />
+            <q-btn @click="onCreateUser" outline color="primary" label="Create an Account" />
           </q-card-section>
         </q-card>
       </div>
@@ -54,6 +54,14 @@ const isPwd = ref<boolean>(true)
 const router = useRouter()
 const email = ref<string>('')
 const password = ref<string>('')
+
+const onCreateUser = async () => {
+  try {
+    await router.push('/createUser')
+  } catch (err) {
+    alert(err)
+  }
+}
 
 const onLogin = async () => {
   try {
