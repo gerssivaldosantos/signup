@@ -92,13 +92,13 @@ const onLogin = async () => {
     Notify.create({
       message: 'Welcome',
       color: 'green',
-      timeout: 150
+      timeout: 300
     })
   } catch (err) {
     Notify.create({
       message: 'Internal server error',
       color: 'red',
-      timeout: 150
+      timeout: 300
     })
   }
 }
