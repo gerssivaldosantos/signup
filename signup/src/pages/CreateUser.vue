@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 
-import { useAuthRequest } from 'src/helper/requestHelper'
+import { useRequest } from 'src/helper/requestHelper'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { Notify } from 'quasar'
@@ -69,7 +69,7 @@ const router = useRouter()
 
 const onCreateUser = async () => {
   try {
-    await useAuthRequest.post('users', {
+    await useRequest.post('users', {
       name: name.value,
       email: email.value,
       password: password.value,

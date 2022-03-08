@@ -57,7 +57,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
-import { useAuthRequest } from 'src/helper/requestHelper'
+import { useRequest } from 'src/helper/requestHelper'
 import { Notify } from 'quasar'
 
 const isPwd = ref<boolean>(true)
@@ -83,7 +83,7 @@ const onCreateUser = async () => {
 
 const onLogin = async () => {
   try {
-    const result = await useAuthRequest.post('auth', {
+    const result = await useRequest.post('auth', {
       email: email.value,
       password: password.value
     })

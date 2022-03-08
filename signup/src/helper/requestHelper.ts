@@ -16,15 +16,12 @@ const getHeaders = (headers = {}) => {
   }
 }
 
-export const useUserRequest = {
+export const useRequest = {
   get (routeName: string, headers = {}) {
     return axios.get(`${baseUrl}/${routeName}`, {
       headers: getHeaders(headers)
     })
-  }
-}
-
-export const useAuthRequest = {
+  },
   async post (
     routeName: string,
     params?: unknown,
